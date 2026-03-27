@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Nostra Eredita - N'EREDITÀ</title>
+    <link rel="stylesheet" href="neredita.css">
+</head>
+
+<body>
+<div class="overlay">
+
+    <div class="nav">
+
+        <div class="navigation">
+            <img src="logo.png" class="logo" alt="Logo">
+        </div>
+
+        <div class="navigation">
+            <a href="neredita.html"><b>HOME</b></a>
+            <a href="about.html"><b>ABOUT US</b></a>
+            <a href="mv.html"><b>MISSION &amp; VISION</b></a>
+            <a href="logoslogan.html"><b>LOGO &amp; SLOGAN</b></a>
+            <a href="products.html"><b>PRODUCTS</b></a>
+        </div>
+
+        <div class="checkout">
+            <a href="checkout.html">
+                <img src="checkout.png" class="cart" alt="Checkout">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="product-tabs">
+        <a href="products.html#shirts"><b>SHIRTS</b></a> 
+        <a href="products.html#stickers"><b>STICKERS &amp; BAG</b></a>
+        <a href="products.html#food"><b>FOOD &amp; DRINKS</b></a>
+    </div>
+
+    <div class="product-page">
+
+        <div class="product-left">
+            <img src="nostraeredita.png" width="350" alt="Nostra Eredita">
+            <h2 style="color: white;">PHP450</h2>
+        </div>
+
+        <div class="product-right">
+            <h1 style="color: white;">NOSTRA EREDITA</h1>
+
+            <p style="color: white; max-width: 650px; margin: 0 auto; line-height: 1.6; text-align: center;">
+                <b>Enduring legacy left by the previous Sándor.</b> The concept behind this design is to express our deep respect and appreciation for the history that shaped us. It goes beyond mere aesthetics; it tells a vivid story, a story meant to be shared.
+            </p>
+
+            <br>
+
+            <label for="size" style="color: white; font-size: 20px;"><b>SELECT SIZE</b></label>
+            <br><br>
+
+            <select id="size" name="size" style="width: 200px; padding: 10px; font-size: 18px; text-align: center; border-radius: 5px;">
+                <option value="">Choose Size</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+
+            <br><br>
+
+            <label for="quantity" style="color: white; font-size: 20px;"><b>QUANTITY</b></label>
+            <br><br>
+
+            <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                min="1"
+                value="1"
+                style="width: 200px; padding: 10px; font-size: 18px; text-align: center; border-radius: 5px; border: none;"
+            >
+
+            <br><br>
+
+            <a href="#" class="confirm-button" onclick="addToCart(event)">
+                ADD TO CART
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function addToCart(event) {
+    event.preventDefault();
+
+    const size = document.getElementById("size").value;
+    const quantity = document.getElementById("quantity").value;
+
+    if (size === "") {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const cartItem = {
+        productName: "Nostra Eredita",
+        size: size,
+        quantity: quantity,
+        price: 350,
+        image: "nostraeredita.png"
+    };
+
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    window.location.href = "checkout.html";
+}
+</script>
+
+</body>
+</html>

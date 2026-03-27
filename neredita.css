@@ -1,0 +1,454 @@
+body {
+    background-color: #54332E;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+/* GENERAL TEXT */
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+p {
+    color: white;
+}
+
+.highlight {
+    color: #C63A1E;
+}
+
+/* NAVIGATION */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.checkout {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+}
+
+.cart {
+    width: 60px;
+    height: 60px;
+}
+
+/* HOME PAGE */
+.home-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.title h1 {
+    margin-bottom: 10px;
+}
+
+.title h2 {
+    margin-top: 0;
+}
+
+.video {
+    width: 700px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* ABOUT PAGE */
+.about-title {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 20px 50px 60px 50px;
+}
+
+.about-left {
+    width: 45%;
+    text-align: center;
+}
+
+.about-right {
+    width: 45%;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 600px;
+}
+
+.about-text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 40px;
+}
+
+/* MISSION AND VISION PAGE */
+.missionvision-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    padding: 60px 50px 80px 50px;
+}
+
+.mission-box,
+.vision-box {
+    width: 40%;
+    text-align: center;
+}
+
+.mv-title {
+    color: white;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.mv-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* LOGO AND SLOGAN PAGE */
+.logoslogan-title {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.logoslogan-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 70px;
+    padding: 20px 40px 60px 40px;
+}
+
+.logoslogan-left {
+    width: 40%;
+    text-align: center;
+}
+
+.logoslogan-right {
+    width: 50%;
+    text-align: center;
+}
+
+.logoslogan-image {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.slogan-text {
+    color: black;
+    font-size: 36px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.logoslogan-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+/* PRODUCTS CATALOG PAGE */
+.products-title {
+    color: white;
+    text-align: center;
+    font-size: 70px;
+    margin-top: 30px;
+}
+
+.product-categories {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    margin: 20px 0;
+}
+
+.product-categories a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.product-display {
+    text-align: center;
+}
+
+.main-banner {
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+.product-content {
+    display: none;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+#shirts:target,
+#stickers:target,
+#food:target {
+    display: block;
+}
+
+.product-content h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.product-content img {
+    margin: 0 15px;
+    vertical-align: middle;
+}
+
+/* INDIVIDUAL PRODUCT PAGE */
+.product-tabs {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.product-tabs a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 25px;
+}
+
+.product-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: 40px;
+}
+
+.product-left {
+    text-align: center;
+}
+
+.product-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.product-actions {
+    margin-top: auto;
+    text-align: center;
+}
+
+.quantity-input {
+    width: 200px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+/* BUTTON */
+.confirm-button {
+    background-color: #7ED957;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* CHECKOUT PAGE */
+.checkout-title {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.checkout-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 50px 60px 50px;
+}
+
+.checkout-left {
+    width: 35%;
+    text-align: center;
+}
+
+.checkout-right {
+    width: 55%;
+    text-align: center;
+}
+
+.checkout-subtitle {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.checkout-product {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.checkout-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-form-title {
+    color: white;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.checkout-form input,
+.checkout-form select {
+    width: 400px;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.checkout-payment-title {
+    color: white;
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.payment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.payment-select {
+    width: 260px;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.order-confirmed-title {
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 80px;
+    line-height: 1.2;
+}
+
+.order-confirmed-subtext {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.order-confirmed-page {
+    text-align: center;
+}
+
+.confirm-button {
+    .confirm-button {
+    display: inline-block; 
+    width: auto; 
+    background-color: #7ED957;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    cursor: pointer;
+    text-decoration: none;
+}
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Liveliness - N'EREDITÀ</title>
+    <link rel="stylesheet" href="neredita.css">
+</head>
+
+<body>
+<div class="overlay">
+
+    <div class="nav">
+
+        <div class="navigation">
+            <img src="logo.png" class="logo" alt="N'EREDITÀ Logo">
+        </div>
+
+        <div class="navigation">
+            <a href="mainwebsite.html"><b>HOME</b></a>
+            <a href="about.html"><b>ABOUT US</b></a>
+            <a href="mv.html"><b>MISSION &amp; VISION</b></a>
+            <a href="logoslogan.html"><b>LOGO &amp; SLOGAN</b></a>
+            <a href="products.html"><b>PRODUCTS</b></a>
+        </div>
+
+        <div class="checkout">
+            <a href="checkout.html">
+                <img src="checkout.png" class="cart" alt="Checkout">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="product-tabs">
+        <a href="products.html#shirts"><b>SHIRTS</b></a>
+        <a href="products.html#stickers"><b>STICKERS &amp; BAG</b></a>
+        <a href="products.html#food"><b>FOOD &amp; DRINKS</b></a>
+    </div>
+
+    <div class="product-page">
+
+        <div class="product-left">
+            <img src="liveliness.png" width="300" alt="Liveliness Sticker">
+            <h2 style="color: white;">PHP40</h2>
+        </div>
+
+       <div class="product-right">
+           <h1 style="color: white;">LIVELINESS</h1>
+
+           <p style="color: white; max-width: 600px; margin: 0 auto; line-height: 1.6; text-align: center;">
+              A postage stamp of DBTI Makati’s Magone Dome. Named after Michael Magone, known for his lively nature, also shows Bosconians’ nature to be playful as the dome is always filled with Bosconians playing games during break times.
+           </p>
+
+           <div class="product-actions">
+
+               <label style="color: white; font-size: 20px;"><b>QUANTITY</b></label>
+               <br><br>
+
+               <input
+                   type="number"
+                   id="quantity"
+                   value="1"
+                   min="1"
+                   class="quantity-input"
+               >
+
+               <br><br>
+
+               <a href="#" class="confirm-button" onclick="addToCart(event)">
+                   ADD TO CART
+               </a>
+
+           </div>
+       </div>
+
+</div>
+
+<script>
+function addToCart(event) {
+    event.preventDefault();
+
+    let quantity = document.getElementById("quantity").value;
+
+    if (quantity === "" || quantity < 1) {
+        quantity = 1;
+    }
+
+    const cartItem = {
+        productName: "Liveliness",
+        size: "N/A", 
+        quantity: quantity,
+        price: 40,
+        image: "liveliness.png"
+    };
+
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    window.location.href = "checkout.html";
+}
+</script>
+</body>
+</html

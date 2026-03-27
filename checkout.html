@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="neredita.css">
+</head>
+
+<body>
+<div class="overlay">
+
+    <div class="nav">
+
+        <div class="navigation">
+            <img src="logo.png" class="logo" alt="Logo">
+        </div>
+
+        <div class="navigation">
+            <a href="mainwebsite.html"><b>HOME</b></a>
+            <a href="about.html"><b>ABOUT US</b></a>
+            <a href="mv.html"><b>MISSION &amp; VISION</b></a>
+            <a href="logoslogan.html"><b>LOGO &amp; SLOGAN</b></a>
+            <a href="products.html"><b>PRODUCTS</b></a>
+        </div>
+
+        <div class="checkout">
+            <a href="checkout.html">
+                <img src="checkout.png" class="cart" alt="Checkout">
+            </a>
+        </div>
+
+    </div>
+
+    <h1 class="checkout-title">CHECKOUT</h1>
+
+    <div class="checkout-section">
+
+        <div class="checkout-left">
+            <h2 class="checkout-subtitle">SUMMARY OF PURCHASE</h2>
+
+            <img id="checkout-product-image" src="" alt="Product" class="checkout-product">
+
+            <p class="checkout-text" id="checkout-product-name">Product:</p>
+            <p class="checkout-text" id="checkout-product-size">Size:</p>
+            <p class="checkout-text" id="checkout-product-quantity">Quantity:</p>
+            <p class="checkout-text" id="checkout-product-total">Total:</p>
+        </div>
+
+        <div class="checkout-right">
+            <h2 class="checkout-form-title">INFORMATION FILLOUT</h2>
+
+            <form class="checkout-form" id="checkoutForm">
+
+                <input type="text" id="firstName" placeholder="FIRST NAME" required>
+                <input type="text" id="middleInitial" placeholder="MIDDLE INITIAL">
+                <input type="text" id="lastName" placeholder="LAST NAME" required>
+                <input type="email" id="email" placeholder="EMAIL" required>
+
+                <select id="deliveryOption" required>
+                    <option value="" disabled selected hidden>DELIVERY OPTION</option>
+                    <option value="classroom">DELIVERED TO CLASSROOM</option>
+                    <option value="booth">PICK UP AT BOOTH</option>
+                </select>
+
+                <h2 class="checkout-payment-title">PAYMENT OPTION</h2>
+
+                <div class="payment-section">
+                    <select class="payment-select" id="paymentMethod" required>
+                        <option value="" disabled selected hidden>PAYMENT METHOD</option>
+                        <option value="cash">CASH</option>
+                        <option value="gcash">GCASH</option>
+                    </select>
+
+                    <button type="submit" class="confirm-button">CONFIRM</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const savedCartItem = localStorage.getItem("cartItem");
+
+if (savedCartItem) {
+    const cartItem = JSON.parse(savedCartItem);
+
+    document.getElementById("checkout-product-image").src = cartItem.image;
+    document.getElementById("checkout-product-name").textContent = "Product: " + cartItem.productName;
+    document.getElementById("checkout-product-size").textContent = "Size: " + cartItem.size;
+    document.getElementById("checkout-product-quantity").textContent = "Quantity: " + cartItem.quantity;
+    document.getElementById("checkout-product-total").textContent =
+        "Total: PHP" + (cartItem.price * Number(cartItem.quantity));
+} else {
+    document.getElementById("checkout-product-name").textContent = "No product added yet.";
+    document.getElementById("checkout-product-image").style.display = "none";
+    document.getElementById("checkout-product-size").style.display = "none";
+    document.getElementById("checkout-product-quantity").style.display = "none";
+    document.getElementById("checkout-product-total").style.display = "none";
+}
+
+document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const deliveryOption = document.getElementById("deliveryOption").value;
+    const paymentMethod = document.getElementById("paymentMethod").value;
+
+    if (!savedCartItem) {
+        alert("No product added to cart yet.");
+        return;
+    }
+
+    if (firstName === "" || lastName === "" || email === "" || deliveryOption === "" || paymentMethod === "") {
+        alert("Please complete all required fields first.");
+        return;
+    }
+
+    localStorage.removeItem("cartItem");
+    window.location.href = "orderconfirmed.html";
+});
+</script>
+
+</body>
+</html>

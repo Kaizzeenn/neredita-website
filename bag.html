@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bag - N'EREDITÀ</title>
+    <link rel="stylesheet" href="neredita.css">
+</head>
+
+<body>
+<div class="overlay">
+
+    <div class="nav">
+
+        <div class="navigation">
+            <img src="logo.png" class="logo" alt="N'EREDITÀ Logo">
+        </div>
+
+        <div class="navigation">
+            <a href="mainwebsite.html"><b>HOME</b></a>
+            <a href="about.html"><b>ABOUT US</b></a>
+            <a href="mv.html"><b>MISSION &amp; VISION</b></a>
+            <a href="logoslogan.html"><b>LOGO &amp; SLOGAN</b></a>
+            <a href="products.html"><b>PRODUCTS</b></a>
+        </div>
+
+        <div class="checkout">
+            <a href="checkout.html">
+                <img src="checkout.png" class="cart" alt="Checkout">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="product-tabs">
+        <a href="products.html#shirts"><b>SHIRTS</b></a>
+        <a href="products.html#stickers"><b>STICKERS &amp; BAG</b></a>
+        <a href="products.html#food"><b>FOOD &amp; DRINKS</b></a>
+    </div>
+
+    <div class="product-page">
+
+        <div class="product-left">
+            <img src="bag.png" width="300" alt="Tsuno Bag">
+            <h2 style="color: white;">PHP320</h2>
+        </div>
+
+       <div class="product-right">
+           <h1 style="color: white;">EST. 1954</h1>
+
+           <p style="color: white; max-width: 600px; margin: 0 auto; line-height: 1.6; text-align: center;">
+             Don Bosco Technical Institute of Makati was established in 1954 — The "EST. 1954" text connects the present with its historical roots, reminding us that the legacy of Don Bosco Makati is both enduring and evolving. The Tsuno Bag, in its simplicity, becomes a canvas that represents the school’s commitment to shaping leaders who live by Don Bosco’s values of kindness, excellence, and service. Carrying this bag is like carrying the weight and responsibility of continuing the legacy—a legacy that began with Fr. Braga and continues to inspire each generation of Bosconians to make a difference in the world. 
+         </p>
+
+           <div class="product-actions">
+
+               <label style="color: white; font-size: 20px;"><b>QUANTITY</b></label>
+               <br><br>
+
+               <input
+                   type="number"
+                   id="quantity"
+                   value="1"
+                   min="1"
+                   class="quantity-input"
+               >
+
+               <br><br>
+
+               <a href="#" class="confirm-button" onclick="addToCart(event)">
+                   ADD TO CART
+               </a>
+
+           </div>
+       </div>
+
+</div>
+
+<script>
+function addToCart(event) {
+    event.preventDefault();
+
+    let quantity = document.getElementById("quantity").value;
+
+    if (quantity === "" || quantity < 1) {
+        quantity = 1;
+    }
+
+    const cartItem = {
+        productName: "Est. 1954",
+        size: "N/A", 
+        quantity: quantity,
+        price: 320,
+        image: "bag.png"
+    };
+
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    window.location.href = "checkout.html";
+}
+</script>
+</body>
+</html
