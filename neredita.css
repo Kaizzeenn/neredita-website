@@ -451,8 +451,3 @@ p {
     cursor: pointer;
     text-decoration: none;
 }
-    
-.product-page img {
-    image-rendering: auto;
-    filter: contrast(1.01);
-}
