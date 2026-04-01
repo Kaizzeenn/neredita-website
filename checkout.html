@@ -105,6 +105,8 @@ if (savedCartItem) {
 document.getElementById("checkoutForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
+    document.querySelector(".confirm-button").disabled = true;
+
     const firstName = document.getElementById("firstName").value.trim();
     const middleInitial = document.getElementById("middleInitial").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
