@@ -12,18 +12,18 @@ h1 {
     color: white;
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 h2 {
     color: white;
     text-align: center;
-    margin-top: 0;
     margin-bottom: 20px;
 }
 
 p {
     color: white;
+    line-height: 1.6;
 }
 
 .highlight {
@@ -51,11 +51,6 @@ p {
     font-weight: bold;
 }
 
-.checkout {
-    display: flex;
-    align-items: center;
-}
-
 .logo {
     width: 150px;
     height: 100px;
@@ -66,18 +61,10 @@ p {
     height: 60px;
 }
 
-/* HOME PAGE */
+/* HOME */
 .home-section {
     text-align: center;
     margin-top: 40px;
-}
-
-.title h1 {
-    margin-bottom: 10px;
-}
-
-.title h2 {
-    margin-top: 0;
 }
 
 .video {
@@ -86,53 +73,37 @@ p {
     margin: 20px auto;
 }
 
-/* ABOUT PAGE */
+/* ABOUT */
 .about-title {
-    color: white;
-    text-align: center;
     font-size: 60px;
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin: 30px 0 40px;
 }
 
 .about-section {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 60px;
-    padding: 20px 50px 60px 50px;
+    padding: 20px 50px 60px;
 }
 
-.about-left {
-    width: 45%;
-    text-align: center;
-}
-
+.about-left,
 .about-right {
     width: 45%;
 }
 
-.about-image {
-    width: 100%;
-    max-width: 600px;
-}
-
 .about-text {
-    color: white;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    line-height: 1.4;
-    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-/* MISSION AND VISION PAGE */
+/* MISSION & VISION */
 .missionvision-section {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     gap: 80px;
-    padding: 60px 50px 80px 50px;
+    padding: 60px 50px 80px;
 }
 
 .mission-box,
@@ -142,74 +113,46 @@ p {
 }
 
 .mv-title {
-    color: white;
     font-size: 60px;
     margin-bottom: 20px;
 }
 
 .mv-text {
-    color: white;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    line-height: 1.4;
-    text-align: center;
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-/* LOGO AND SLOGAN PAGE */
+/* LOGO & SLOGAN */
 .logoslogan-title {
-    color: white;
-    text-align: center;
     font-size: 60px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
 }
 
 .logoslogan-section {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     gap: 70px;
-    padding: 20px 40px 60px 40px;
+    padding: 20px 40px 60px;
 }
 
-.logoslogan-left {
-    width: 40%;
-    text-align: center;
-}
-
+.logoslogan-left,
 .logoslogan-right {
-    width: 50%;
     text-align: center;
-}
-
-.logoslogan-image {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.slogan-text {
-    color: black;
-    font-size: 36px;
-    font-style: italic;
-    margin-top: 10px;
 }
 
 .logoslogan-text {
-    color: white;
     font-size: 18px;
     font-weight: bold;
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 50px;
-    text-transform: uppercase;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 50px;
 }
 
-/* PRODUCTS CATALOG PAGE */
+/* PRODUCTS */
 .products-title {
-    color: white;
-    text-align: center;
     font-size: 70px;
     margin-top: 30px;
 }
@@ -222,83 +165,22 @@ p {
 }
 
 .product-categories a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
     font-size: 20px;
-}
-
-.product-display {
-    text-align: center;
-}
-
-.main-banner {
-    width: 80%;
-    max-width: 900px;
-    border-radius: 10px;
-}
-
-.product-content {
-    display: none;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 60px;
-}
-
-#shirts:target,
-#stickers:target,
-#food:target {
-    display: block;
-}
-
-.product-content h2 {
+    font-weight: bold;
+    text-decoration: none;
     color: white;
-    margin-bottom: 20px;
 }
 
 .product-content img {
     margin: 0 15px;
-    vertical-align: middle;
 }
 
-/* INDIVIDUAL PRODUCT PAGE */
-.product-tabs {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-.product-tabs a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 25px;
-}
-
+/* PRODUCT PAGE */
 .product-page {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 80px;
     margin-top: 40px;
-}
-
-.product-left {
-    text-align: center;
-}
-
-.product-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-}
-
-.product-actions {
-    margin-top: auto;
-    text-align: center;
 }
 
 .quantity-input {
@@ -312,33 +194,29 @@ p {
 
 /* BUTTON */
 .confirm-button {
+    display: inline-block;
+    width: auto;
     background-color: #7ED957;
     color: black;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     border: none;
-    border-radius: 20px;
-    padding: 15px 40px;
+    border-radius: 25px;
+    padding: 12px 30px;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
 }
 
-/* CHECKOUT PAGE */
+/* CHECKOUT */
 .checkout-title {
-    color: white;
-    text-align: center;
     font-size: 60px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
 }
 
 .checkout-section {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px 50px 60px 50px;
+    padding: 20px 50px 60px;
 }
 
 .checkout-left {
@@ -351,28 +229,10 @@ p {
     text-align: center;
 }
 
-.checkout-subtitle {
-    color: white;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.checkout-product {
-    width: 250px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
 .checkout-text {
-    color: white;
     font-size: 18px;
     font-weight: bold;
-}
-
-.checkout-form-title {
-    color: white;
-    font-size: 55px;
-    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .checkout-form {
@@ -388,67 +248,21 @@ p {
     padding: 12px;
     font-size: 18px;
     text-align: center;
-    border: none;
     border-radius: 5px;
-}
-
-.checkout-payment-title {
-    color: white;
-    font-size: 28px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-.payment-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.payment-select {
-    width: 260px;
-    padding: 12px;
-    font-size: 18px;
-    text-align: center;
     border: none;
-    border-radius: 5px;
 }
 
+/* ORDER CONFIRMED */
 .order-confirmed-title {
-    color: white;
     font-size: 60px;
     text-align: center;
     margin-top: 80px;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 .order-confirmed-subtext {
-    color: white;
     font-size: 20px;
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 0;
     letter-spacing: 1px;
 }
-
-.order-confirmed-page {
-    text-align: center;
-}
-
-.confirm-button {
-    .confirm-button {
-    display: inline-block; 
-    width: auto; 
-    background-color: #7ED957;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 25px;
-    padding: 12px 30px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
