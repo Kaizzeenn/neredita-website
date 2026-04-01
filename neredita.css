@@ -1,12 +1,3 @@
-body {
-    background-color: #54332E;
-    background-image: url("background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-}
-
 /* GENERAL TEXT */
 h1 {
     color: white;
@@ -30,169 +21,81 @@ p {
     color: #C63A1E;
 }
 
-/* NAVIGATION */
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.navigation {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.navigation a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.logo {
-    width: 150px;
-    height: 100px;
-}
-
-.cart {
-    width: 60px;
-    height: 60px;
-}
-
-/* HOME */
-.home-section {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.video {
-    width: 700px;
-    display: block;
-    margin: 20px auto;
-}
-
-/* ABOUT */
-.about-title {
-    font-size: 60px;
-    margin: 30px 0 40px;
-}
-
-.about-section {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    padding: 20px 50px 60px;
-}
-
-.about-left,
-.about-right {
-    width: 45%;
-}
-
-.about-text {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1.6;
-}
-
-/* MISSION & VISION */
+/* MISSION AND VISION PAGE */
 .missionvision-section {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: 80px;
-    padding: 60px 50px 80px;
+    padding: 60px 50px 80px 50px;
 }
 
 .mission-box,
 .vision-box {
     width: 40%;
     text-align: center;
+    padding: 20px;
 }
 
 .mv-title {
+    color: white;
     font-size: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .mv-text {
+    color: white;
     font-size: 20px;
     font-weight: bold;
     line-height: 1.8;
+    text-align: center;
     max-width: 500px;
     margin: 0 auto;
 }
 
-/* LOGO & SLOGAN */
-.logoslogan-title {
-    font-size: 60px;
-    margin: 10px 0 20px;
-}
-
-.logoslogan-section {
-    display: flex;
-    justify-content: center;
-    gap: 70px;
-    padding: 20px 40px 60px;
-}
-
-.logoslogan-left,
-.logoslogan-right {
+/* ABOUT PAGE */
+.about-text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
+    line-height: 1.6;
+    margin-bottom: 40px;
 }
 
+/* LOGO AND SLOGAN PAGE */
 .logoslogan-text {
+    color: white;
     font-size: 18px;
     font-weight: bold;
     line-height: 1.6;
+    text-align: center;
+    margin-bottom: 50px;
     max-width: 500px;
-    margin: 0 auto 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* PRODUCTS */
-.products-title {
-    font-size: 70px;
-    margin-top: 30px;
-}
-
-.product-categories {
-    display: flex;
-    justify-content: center;
-    gap: 120px;
-    margin: 20px 0;
-}
-
-.product-categories a {
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
+/* CHECKOUT TEXT */
+.checkout-text {
     color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
 }
 
-.product-content img {
-    margin: 0 15px;
-}
-
-/* PRODUCT PAGE */
-.product-page {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-top: 40px;
-}
-
-.quantity-input {
-    width: 200px;
-    padding: 10px;
+/* FORM INPUT SPACING */
+.checkout-form input,
+.checkout-form select {
+    width: 400px;
+    padding: 12px;
     font-size: 18px;
     text-align: center;
-    border-radius: 5px;
     border: none;
+    border-radius: 5px;
 }
 
-/* BUTTON */
+/* BUTTON FIX (removed duplicate bug) */
 .confirm-button {
     display: inline-block;
     width: auto;
@@ -205,64 +108,5 @@ p {
     padding: 12px 30px;
     cursor: pointer;
     text-decoration: none;
-}
-
-/* CHECKOUT */
-.checkout-title {
-    font-size: 60px;
-    margin: 10px 0 20px;
-}
-
-.checkout-section {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px 60px;
-}
-
-.checkout-left {
-    width: 35%;
-    text-align: center;
-}
-
-.checkout-right {
-    width: 55%;
-    text-align: center;
-}
-
-.checkout-text {
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 1.6;
-}
-
-.checkout-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.checkout-form input,
-.checkout-form select {
-    width: 400px;
-    padding: 12px;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 5px;
-    border: none;
-}
-
-/* ORDER CONFIRMED */
-.order-confirmed-title {
-    font-size: 60px;
-    text-align: center;
-    margin-top: 80px;
-    line-height: 1.3;
-}
-
-.order-confirmed-subtext {
-    font-size: 20px;
-    text-align: center;
-    margin: 40px 0;
-    letter-spacing: 1px;
+    margin-top: 10px;
 }
