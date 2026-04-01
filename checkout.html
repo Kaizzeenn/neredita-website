@@ -136,7 +136,7 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
     };
 
     try {
-        const response = await fetch("PASTE-YOUR-EXEC-URL-HERE", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwoi9s4u3eAcZUrVoXJ-G7Ck_kBHBfaJTG0APX9R7VLepxGr4QACTBStXkRyc70JQ1f/exec", {
             method: "POST",
             body: JSON.stringify(orderData)
         });
