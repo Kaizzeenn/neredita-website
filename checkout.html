@@ -136,26 +136,20 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
     };
 
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwoi9s4u3eAcZUrVoXJ-G7Ck_kBHBfaJTG0APX9R7VLepxGr4QACTBStXkRyc70JQ1f/exec", {
+        const response = await fetch("PASTE-YOUR-EXEC-URL-HERE", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
             body: JSON.stringify(orderData)
         });
 
-        const result = await response.json();
+        const text = await response.text();
+        console.log("Server response:", text);
 
-        if (result.success) {
-            localStorage.removeItem("cartItem");
-            window.location.href = "orderconfirmed.html";
-        } else {
-            alert("Failed to save order.");
-            console.log(result.error);
-        }
+        localStorage.removeItem("cartItem");
+        window.location.href = "orderconfirmed.html";
+
     } catch (error) {
-        alert("Error sending order.");
-        console.log(error);
+        console.log("Full error:", error);
+        alert("Error sending order. Check browser console.");
     }
 });
 </script>
