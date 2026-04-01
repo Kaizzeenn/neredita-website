@@ -58,8 +58,8 @@
 
                 <select id="deliveryOption" required>
                     <option value="" disabled selected hidden>DELIVERY OPTION</option>
-                    <option value="classroom">DELIVERED TO CLASSROOM</option>
-                    <option value="booth">PICK UP AT BOOTH</option>
+                    <option value="DELIVERED TO CLASSROOM">DELIVERED TO CLASSROOM</option>
+                    <option value="PICK UP AT BOOTH">PICK UP AT BOOTH</option>
                 </select>
 
                 <h2 class="checkout-payment-title">PAYMENT OPTION</h2>
@@ -67,8 +67,8 @@
                 <div class="payment-section">
                     <select class="payment-select" id="paymentMethod" required>
                         <option value="" disabled selected hidden>PAYMENT METHOD</option>
-                        <option value="cash">CASH</option>
-                        <option value="gcash">GCASH</option>
+                        <option value="CASH">CASH</option>
+                        <option value="GCASH">GCASH</option>
                     </select>
 
                     <button type="submit" class="confirm-button">CONFIRM</button>
@@ -102,10 +102,11 @@ if (savedCartItem) {
     document.getElementById("checkout-product-total").style.display = "none";
 }
 
-document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+document.getElementById("checkoutForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
     const firstName = document.getElementById("firstName").value.trim();
+    const middleInitial = document.getElementById("middleInitial").value.trim();
     const lastName = document.getElementById("lastName").value.trim();
     const email = document.getElementById("email").value.trim();
     const deliveryOption = document.getElementById("deliveryOption").value;
@@ -121,8 +122,38 @@ document.getElementById("checkoutForm").addEventListener("submit", function(even
         return;
     }
 
-    localStorage.removeItem("cartItem");
-    window.location.href = "orderconfirmed.html";
+    const cartItem = JSON.parse(savedCartItem);
+
+    const orderData = {
+        firstName: firstName,
+        middleInitial: middleInitial,
+        lastName: lastName,
+        email: email,
+        deliveryOption: deliveryOption,
+        paymentMethod: paymentMethod,
+        products: cartItem.productName + " | Size: " + cartItem.size + " | Qty: " + cartItem.quantity,
+        total: cartItem.price * Number(cartItem.quantity)
+    };
+
+    try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycby9jnuiWUdtZ7RHOYIa6Fekv-tMU8LiOK_cNAG3ygI/dev", {
+            method: "POST",
+            body: JSON.stringify(orderData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            localStorage.removeItem("cartItem");
+            window.location.href = "orderconfirmed.html";
+        } else {
+            alert("Failed to save order.");
+            console.log(result.error);
+        }
+    } catch (error) {
+        alert("Error sending order.");
+        console.log(error);
+    }
 });
 </script>
 
