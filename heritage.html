@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Braga Building - N'EREDITÀ</title>
+    <title>Liveliness - N'EREDITÀ</title>
     <link rel="stylesheet" href="neredita.css">
 </head>
 
@@ -40,38 +40,38 @@
     <div class="product-page">
 
         <div class="product-left">
-            <img src="heritage.png" width="300" alt="Heritage Sticker">
+            <img src="home.png" width="300" alt="Home Sticker">
             <h2 style="color: white;">PHP40</h2>
         </div>
 
-       <div class="product-right">
-           <h1 style="color: white;">HERITAGE</h1>
+        <div class="product-right">
+            <h1 style="color: white;">HOME</h1>
 
-           <p style="color: white; max-width: 600px; margin: 0 auto; line-height: 1.6; text-align: center;">
-               A postage stamp of DBTI’s Braga building. Entitled Heritage as it honors the name of the late Fr. Carlo Braga, SDB.
-           </p>
+            <p style="color: white; max-width: 600px; margin: 0 auto; line-height: 1.6; text-align: center;">
+                A postage stamp of DBTI Makati's school front. This location is one that a lot of Bosconians see everyday, going to and from school. This iconic scene serves as a reminder to Bosconians that no matter how long they spent at their “second home”, once a Bosconian, always a Bosconian.
+            </p>
 
-           <div class="product-actions">
+            <div class="product-actions">
+                <label for="quantity" style="color: white; font-size: 20px;"><b>QUANTITY</b></label>
+                <br><br>
 
-               <label style="color: white; font-size: 20px;"><b>QUANTITY</b></label>
-               <br><br>
+                <input
+                    type="number"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    class="quantity-input"
+                >
 
-               <input
-                   type="number"
-                   id="quantity"
-                   value="1"
-                   min="1"
-                   class="quantity-input"
-               >
+                <br><br>
 
-               <br><br>
+                <a href="#" class="confirm-button" onclick="addToCart(event)">
+                    ADD TO CART
+                </a>
+            </div>
+        </div>
 
-               <a href="#" class="confirm-button" onclick="addToCart(event)">
-                   ADD TO CART
-               </a>
-
-           </div>
-       </div>
+    </div>
 
 </div>
 
@@ -79,23 +79,36 @@
 function addToCart(event) {
     event.preventDefault();
 
-    let quantity = document.getElementById("quantity").value;
+    let quantity = parseInt(document.getElementById("quantity").value);
 
-    if (quantity === "" || quantity < 1) {
+    if (!quantity || quantity < 1) {
         quantity = 1;
     }
 
-    const cartItem = {
-        productName: "Heritage",
-        size: "N/A", 
+    const newItem = {
+        productName: "Home",
+        size: "N/A",
         quantity: quantity,
         price: 40,
-        image: "heritage.png"
+        image: "home.png"
     };
 
-    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItemIndex = cart.findIndex(item =>
+        item.productName === newItem.productName && item.size === newItem.size
+    );
+
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += newItem.quantity;
+    } else {
+        cart.push(newItem);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     window.location.href = "checkout.html";
 }
 </script>
+
 </body>
 </html>
