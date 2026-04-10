@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Checkout</title>
+    <title>Checkout - N'EREDITÀ</title>
     <link rel="stylesheet" href="neredita.css">
 </head>
 
@@ -10,9 +10,8 @@
 <div class="overlay">
 
     <div class="nav">
-
         <div class="navigation">
-            <img src="logo.png" class="logo" alt="Logo">
+            <img src="logo.png" class="logo" alt="N'EREDITÀ Logo">
         </div>
 
         <div class="navigation">
@@ -28,84 +27,122 @@
                 <img src="checkout.png" class="cart" alt="Checkout">
             </a>
         </div>
-
     </div>
 
-    <h1 class="checkout-title">CHECKOUT</h1>
+    <h1 style="text-align: center; color: white; font-size: 70px; margin-top: 30px;">CHECKOUT</h1>
 
-    <div class="checkout-section">
+    <div style="display: flex; justify-content: space-around; align-items: flex-start; margin-top: 40px; flex-wrap: wrap;">
 
-        <div class="checkout-left">
-            <h2 class="checkout-subtitle">SUMMARY OF PURCHASE</h2>
+        <div style="width: 40%; min-width: 300px; color: white;">
+            <h2 style="font-size: 35px; text-align: center;">SUMMARY OF PURCHASE</h2>
 
-            <img id="checkout-product-image" src="" alt="Product" class="checkout-product">
+            <div id="cart-items" style="margin-top: 30px;"></div>
 
-            <p class="checkout-text" id="checkout-product-name">Product:</p>
-            <p class="checkout-text" id="checkout-product-size">Size:</p>
-            <p class="checkout-text" id="checkout-product-quantity">Quantity:</p>
-            <p class="checkout-text" id="checkout-product-total">Total:</p>
+            <div id="cart-total" style="margin-top: 20px; text-align: center; font-size: 28px; font-weight: bold;"></div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button type="button" onclick="clearCart()" style="padding: 12px 24px; font-size: 18px; border: none; border-radius: 12px; cursor: pointer;">
+                    CLEAR CART
+                </button>
+            </div>
         </div>
 
-        <div class="checkout-right">
-            <h2 class="checkout-form-title">INFORMATION FILLOUT</h2>
+        <div style="width: 40%; min-width: 300px; color: white; text-align: center;">
+            <h2 style="font-size: 60px; margin-bottom: 20px;">INFORMATION FILLOUT</h2>
 
-            <form class="checkout-form" id="checkoutForm">
+            <form id="checkout-form">
+                <input type="text" id="firstName" placeholder="FIRST NAME" style="width: 80%; padding: 15px; margin: 10px 0; font-size: 18px; text-align: center; border-radius: 5px; border: none;"><br>
 
-                <input type="text" id="firstName" placeholder="FIRST NAME" required>
-                <input type="text" id="middleInitial" placeholder="MIDDLE INITIAL">
-                <input type="text" id="lastName" placeholder="LAST NAME" required>
-                <input type="email" id="email" placeholder="EMAIL" required>
+                <input type="text" id="middleInitial" placeholder="MIDDLE INITIAL" style="width: 80%; padding: 15px; margin: 10px 0; font-size: 18px; text-align: center; border-radius: 5px; border: none;"><br>
 
-                <select id="deliveryOption" required>
-                    <option value="" disabled selected hidden>DELIVERY OPTION</option>
-                    <option value="DELIVERED TO CLASSROOM">DELIVERED TO CLASSROOM</option>
-                    <option value="PICK UP AT BOOTH">PICK UP AT BOOTH</option>
-                </select>
+                <input type="text" id="lastName" placeholder="LAST NAME" style="width: 80%; padding: 15px; margin: 10px 0; font-size: 18px; text-align: center; border-radius: 5px; border: none;"><br>
 
-                <h2 class="checkout-payment-title">PAYMENT OPTION</h2>
+                <input type="email" id="email" placeholder="EMAIL" style="width: 80%; padding: 15px; margin: 10px 0; font-size: 18px; text-align: center; border-radius: 5px; border: none;"><br>
 
-                <div class="payment-section">
-                    <select class="payment-select" id="paymentMethod" required>
-                        <option value="" disabled selected hidden>PAYMENT METHOD</option>
-                        <option value="CASH">CASH</option>
-                        <option value="GCASH">GCASH</option>
-                    </select>
+                <select id="deliveryOption" style="width: 80%; padding: 15px; margin: 10px 0; font-size: 18px; text-align: center; border-radius: 5px; border: none;">
+                    <option value="">DELIVERY OPTION</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="Meet-up">Meet-up</option>
+                    <option value="Pick-up">Pick-up</option>
+                </select><br><br>
 
-                    <button type="submit" class="confirm-button">CONFIRM</button>
-                </div>
+                <h3 style="font-size: 35px;">PAYMENT OPTION</h3>
 
+                <select id="paymentMethod" style="width: 80%; padding: 15px; margin: 10px 0; font-size: 18px; text-align: center; border-radius: 5px; border: none;">
+                    <option value="">PAYMENT METHOD</option>
+                    <option value="GCash">GCash</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                </select><br><br>
+
+                <button id="confirmBtn" type="submit" style="background-color: #7ed957; color: black; font-size: 24px; font-weight: bold; padding: 15px 40px; border: none; border-radius: 20px; cursor: pointer;">
+                    CONFIRM
+                </button>
             </form>
-
         </div>
-
     </div>
-
 </div>
 
 <script>
-const savedCartItem = localStorage.getItem("cartItem");
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartContainer = document.getElementById("cart-items");
+    const totalContainer = document.getElementById("cart-total");
 
-if (savedCartItem) {
-    const cartItem = JSON.parse(savedCartItem);
+    cartContainer.innerHTML = "";
+    totalContainer.innerHTML = "";
 
-    document.getElementById("checkout-product-image").src = cartItem.image;
-    document.getElementById("checkout-product-name").textContent = "Product: " + cartItem.productName;
-    document.getElementById("checkout-product-size").textContent = "Size: " + cartItem.size;
-    document.getElementById("checkout-product-quantity").textContent = "Quantity: " + cartItem.quantity;
-    document.getElementById("checkout-product-total").textContent =
-        "Total: PHP" + (cartItem.price * Number(cartItem.quantity));
-} else {
-    document.getElementById("checkout-product-name").textContent = "No product added yet.";
-    document.getElementById("checkout-product-image").style.display = "none";
-    document.getElementById("checkout-product-size").style.display = "none";
-    document.getElementById("checkout-product-quantity").style.display = "none";
-    document.getElementById("checkout-product-total").style.display = "none";
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p style='text-align:center; font-size:22px;'>Your cart is empty.</p>";
+        totalContainer.innerHTML = "<p>Total: PHP 0</p>";
+        return;
+    }
+
+    let grandTotal = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        grandTotal += itemTotal;
+
+        cartContainer.innerHTML += `
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="${item.image}" alt="${item.productName}" width="180" style="margin-bottom: 15px;"><br>
+                <p><b>Product:</b> ${item.productName}</p>
+                <p><b>Size:</b> ${item.size}</p>
+                <p><b>Quantity:</b> ${item.quantity}</p>
+                <p><b>Price:</b> PHP ${item.price}</p>
+                <p><b>Total:</b> PHP ${itemTotal}</p>
+
+                <button type="button" onclick="removeItem(${index})" style="padding: 10px 20px; font-size: 16px; border: none; border-radius: 10px; cursor: pointer;">
+                    REMOVE
+                </button>
+                <hr style="margin-top: 20px;">
+            </div>
+        `;
+    });
+
+    totalContainer.innerHTML = `Grand Total: PHP ${grandTotal}`;
 }
 
-document.getElementById("checkoutForm").addEventListener("submit", async function(event) {
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+function clearCart() {
+    if (confirm("Are you sure you want to clear your cart?")) {
+        localStorage.removeItem("cart");
+        loadCart();
+    }
+}
+
+document.getElementById("checkout-form").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    document.querySelector(".confirm-button").disabled = true;
+    const confirmBtn = document.getElementById("confirmBtn");
+    confirmBtn.disabled = true;
 
     const firstName = document.getElementById("firstName").value.trim();
     const middleInitial = document.getElementById("middleInitial").value.trim();
@@ -114,17 +151,28 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
     const deliveryOption = document.getElementById("deliveryOption").value;
     const paymentMethod = document.getElementById("paymentMethod").value;
 
-    if (!savedCartItem) {
-        alert("No product added to cart yet.");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        confirmBtn.disabled = false;
         return;
     }
 
     if (firstName === "" || lastName === "" || email === "" || deliveryOption === "" || paymentMethod === "") {
-        alert("Please complete all required fields first.");
+        alert("Please fill out all required fields.");
+        confirmBtn.disabled = false;
         return;
     }
 
-    const cartItem = JSON.parse(savedCartItem);
+    let grandTotal = 0;
+    let productSummary = "";
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        grandTotal += itemTotal;
+        productSummary += item.productName + " | Size: " + item.size + " | Qty: " + item.quantity + " | Price: PHP " + item.price + "\n";
+    });
 
     const orderData = {
         firstName: firstName,
@@ -133,8 +181,8 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
         email: email,
         deliveryOption: deliveryOption,
         paymentMethod: paymentMethod,
-        products: cartItem.productName + " | Size: " + cartItem.size + " | Qty: " + cartItem.quantity,
-        total: cartItem.price * Number(cartItem.quantity)
+        products: productSummary,
+        total: grandTotal
     };
 
     try {
@@ -146,14 +194,18 @@ document.getElementById("checkoutForm").addEventListener("submit", async functio
         const text = await response.text();
         console.log("Server response:", text);
 
-        localStorage.removeItem("cartItem");
+        localStorage.removeItem("cart");
+        document.getElementById("checkout-form").reset();
         window.location.href = "orderconfirmed.html";
 
     } catch (error) {
         console.log("Full error:", error);
         alert("Error sending order. Check browser console.");
+        confirmBtn.disabled = false;
     }
 });
+
+window.onload = loadCart;
 </script>
 
 </body>
