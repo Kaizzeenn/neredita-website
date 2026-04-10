@@ -99,14 +99,18 @@ function addToCart(event) {
     event.preventDefault();
 
     const size = document.getElementById("size").value;
-    const quantity = document.getElementById("quantity").value;
+    let quantity = parseInt(document.getElementById("quantity").value);
 
     if (size === "") {
         alert("Please select a size first.");
         return;
     }
 
-    const cartItem = {
+    if (!quantity || quantity < 1) {
+        quantity = 1;
+    }
+
+    const newItem = {
         productName: "Your Verse Black",
         size: size,
         quantity: quantity,
@@ -114,7 +118,19 @@ function addToCart(event) {
         image: "yourverseblack.png"
     };
 
-    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItemIndex = cart.findIndex(item =>
+        item.productName === newItem.productName && item.size === newItem.size
+    );
+
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += newItem.quantity;
+    } else {
+        cart.push(newItem);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     window.location.href = "checkout.html";
 }
 </script>
