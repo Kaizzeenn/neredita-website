@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bag - N'EREDITÀ</title>
+    <title>Corndog - N'EREDITÀ</title>
     <link rel="stylesheet" href="neredita.css">
 </head>
 
@@ -79,21 +79,33 @@
 function addToCart(event) {
     event.preventDefault();
 
-    let quantity = document.getElementById("quantity").value;
+    let quantity = parseInt(document.getElementById("quantity").value);
 
-    if (quantity === "" || quantity < 1) {
+    if (!quantity || quantity < 1) {
         quantity = 1;
     }
 
-    const cartItem = {
+    const newItem = {
         productName: "Corndog",
-        size: "N/A", 
+        size: "N/A",
         quantity: quantity,
         price: 99,
         image: "corndog.png"
     };
 
-    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItemIndex = cart.findIndex(item =>
+        item.productName === newItem.productName && item.size === newItem.size
+    );
+
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += newItem.quantity;
+    } else {
+        cart.push(newItem);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
     window.location.href = "checkout.html";
 }
 </script>
